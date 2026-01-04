@@ -689,6 +689,32 @@
   font-size: 0.95rem;
   color: var(--color-text-light);
   letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-link {
+  color: var(--color-text-light);
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid #f0eee7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  background-color: var(--color-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .footer-bottom {
