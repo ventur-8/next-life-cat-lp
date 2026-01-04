@@ -1,18 +1,21 @@
 /* Header */
 .header {
   height: var(--header-height);
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-md);
+  /* Reduced mobile padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(253, 252, 248, 0.85);
+  background: var(--color-bg) !important;
+  /* Force solid background */
   backdrop-filter: blur(12px);
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
+  /* Ensure it stays on top */
   transition: all 0.3s;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.08);
 }
 
 .header:hover {
@@ -27,6 +30,9 @@
   color: var(--color-text);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
+  white-space: nowrap !important;
+  /* Absolute prevention of vertical text */
+  flex-shrink: 0;
 }
 
 .logo:hover {
@@ -101,7 +107,8 @@
   position: relative;
   z-index: 1;
   max-width: 800px;
-  padding: 0 var(--spacing-md);
+  padding: calc(var(--header-height) + 4rem) var(--spacing-md) 4rem;
+  /* More space from header */
 }
 
 .hero-subtitle {
@@ -135,8 +142,12 @@
   backdrop-filter: blur(8px);
   padding: 1rem 2rem;
   border-radius: 16px;
-  display: inline-block;
-  max-width: 600px;
+  display: block;
+  /* Changed from inline-block to prevent collapse */
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 90%;
 }
 
 .btn-primary {
@@ -248,9 +259,98 @@
 }
 
 /* Responsive: Stack on smaller screens */
+@media (max-width: 1024px) {
+  :root {
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+  }
+}
+
 @media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 3rem;
+  }
+
+  .header {
+    padding: 0 var(--spacing-md);
+  }
+
+  .nav {
+    display: none !important;
+    /* Hide English links on mobile to save space */
+  }
+
+  .hero h1 br {
+    display: none;
+    /* Let text flow naturally on mobile */
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    padding: 0 1rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .philosophy-content {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .philosophy-heading {
+    font-size: 1.6rem;
+  }
+
+  .section-title-large {
+    font-size: 2rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .chat-window {
+    width: calc(100% - 2rem);
+    right: 1rem;
+    bottom: 5.5rem;
+  }
+
+  .floating-chat-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+
+  .btn-primary {
+    padding: 1rem 2rem;
+    min-width: 180px;
+    font-size: 0.95rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
   }
 }
 
