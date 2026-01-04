@@ -7,6 +7,17 @@ import productSasami from './assets/product-sasami.png'
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [selectedFaq, setSelectedFaq] = useState(null);
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show sticky CTA after scrolling down 400px
+      setShowStickyCTA(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const faqs = [
     {
@@ -141,6 +152,19 @@ function App() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        {/* Final CTA Section */}
+        <section className="closing-cta">
+          <div className="container">
+            <div className="cta-box">
+              <h2 className="font-serif">愛猫の「来世」を、<br />いま、ここから。</h2>
+              <p>
+                あなたの愛猫が一生健康で、幸せでいられるように。<br />
+                心から安心できる食事を、一袋ずつ丁寧にお届けします。
+              </p>
+              <button className="btn-primary">今すぐ商品をチェックする</button>
             </div>
           </div>
         </section>
