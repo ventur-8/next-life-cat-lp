@@ -58,9 +58,9 @@ function App() {
       <header className="header">
         <div className="logo font-serif">来世は猫</div>
         <nav className="nav">
-          <a href="#philosophy" className="nav-link">Our Philosophy</a>
-          <a href="#products" className="nav-link">Products</a>
-          <a href="#journal" className="nav-link">Journal</a>
+          <a href="#philosophy" className="nav-link">私たちの想い</a>
+          <a href="#products" className="nav-link">商品一覧</a>
+          <a href="#journal" className="nav-link">読みもの</a>
         </nav>
         <div className="header-actions">
           <button className="icon-btn">
