@@ -222,6 +222,13 @@ function App() {
         </div>
       )}
 
+      {/* Floating Sticky CTA */}
+      <div className={`sticky-cta-container ${showStickyCTA ? 'visible' : ''}`}>
+        <button className="sticky-cta-btn" onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}>
+          商品をみる
+        </button>
+      </div>
+
       {/* Floating Chat Button */}
       <button className="floating-chat-btn" onClick={() => setIsChatOpen(!isChatOpen)}>
         {!isChatOpen && <div className="notification-dot"></div>}
